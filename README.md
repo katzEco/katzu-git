@@ -124,6 +124,32 @@ bun run start -- help
 bunx tsc --noEmit
 ```
 
+## Building Executables
+
+Compile standalone cross-platform binaries into `dist/` with zero runtime dependencies:
+
+```bash
+# Interactive platform selection (all checked by default)
+bun run build
+
+# Build all targets without prompt
+bun run build --all
+```
+
+### Supported Targets
+
+| Platform | Target ID | Output Binary |
+| :--- | :--- | :--- |
+| **Windows x64** | `win64` | `dist/kg-win64.exe` |
+| **Windows ARM64** | `win-arm` | `dist/kg-win-arm.exe` |
+| **Linux x64** | `linux-x64` | `dist/kg-linux-x64` |
+| **Linux ARM64** | `linux-arm` | `dist/kg-linux-arm` |
+| **macOS Apple Silicon** | `mac-arm` | `dist/kg-mac-arm` |
+| **macOS Intel** | `mac-x64` | `dist/kg-mac-x64` |
+
+> [!NOTE]
+> 32-bit Windows (`win32`) is unsupported by the Bun runtime compiler (only 64-bit and ARM64 platforms are supported).
+
 ---
 
 ## License

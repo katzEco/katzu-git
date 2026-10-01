@@ -1,10 +1,9 @@
-import { createRequire } from "node:module";
 import type { CommandModule } from "yargs";
 import chalk from "chalk";
+import pkg from "../../package.json" with { type: "json" };
 import type { PackageJson } from "../types.ts";
 
-const require = createRequire(import.meta.url);
-const pkg: PackageJson = require("../../package.json");
+const packageInfo = pkg as PackageJson;
 
 const formatRow = (cmd: string, args: string, desc: string) => {
   const left = `  ${chalk.green(cmd)}${args ? " " + chalk.gray(args) : ""}`;
@@ -31,7 +30,7 @@ export const showHelp = () => {
   ].join("\n");
 
   console.log(`
-${chalk.bold.yellow("katzu's Lazy git")} ${chalk.gray(`(kg v${pkg.version})`)}
+${chalk.bold.yellow("katzu's Lazy git")} ${chalk.gray(`(kg v${packageInfo.version})`)}
 
 ${chalk.bold("Usage:")}
   ${chalk.cyan("kg")} ${chalk.green("<command>")} ${chalk.gray("[options]")}

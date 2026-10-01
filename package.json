@@ -1,6 +1,6 @@
 {
   "name": "katzu-git",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "katzu's Lazy git - A minimal, ergonomic CLI wrapper for everyday Git workflows",
   "author": "George Katsuragi Deterk <me@suphakit.net> (https://suphakit.net)",
   "license": "MIT",
@@ -20,7 +20,8 @@
   },
   "scripts": {
     "dev": "bun --watch bin/index.ts",
-    "start": "bun run bin/index.ts"
+    "start": "bun run bin/index.ts",
+    "build": "bun scripts/build.ts"
   },
   "devDependencies": {
     "@types/bun": "latest",
