@@ -12,6 +12,7 @@ Originally written as a shell script in [`katzu-git-cli`](https://github.com/kat
 - **Conventional Commits (`kg c`)**: Formats commits automatically with type, scope, and subject.
 - **Push (`kg p`)**: Transparent pass-through for `git push` with flag forwarding.
 - **Interactive Update (`kg update`)**: Inquirer-based prompt to update dependencies.
+- **Standalone Binaries**: Cross-compile to single-file executables for Windows, Linux, and macOS with zero runtime dependencies.
 - **Modular Command Architecture**: Clean TypeScript structure using `yargs` command modules and `chalk` styling.
 
 ---
@@ -46,7 +47,7 @@ bun link
 ## Usage
 
 ```text
-katzu's Lazy git (kg v1.0.6)
+katzu's Lazy git (kg v1.0.7)
 
 Usage:
   kg <command> [options]
@@ -80,7 +81,7 @@ kg a src/index.ts package.json
 Format: `kg c [type] [scope] [subject]`
 
 ```bash
-# Commit with scope: feat(auth): add login endpoint
+# Commit with scope: feat<auth>: add login endpoint
 kg c feat auth add login endpoint
 
 # Commit without scope (use 'no' or 'idk'): feat: initial commit
@@ -132,8 +133,12 @@ Compile standalone cross-platform binaries into `dist/` with zero runtime depend
 # Interactive platform selection (all checked by default)
 bun run build
 
-# Build all targets without prompt
+# Build all targets without prompt (-a or --all)
 bun run build --all
+bun run build -a
+
+# Show build script options
+bun run build --help
 ```
 
 ### Supported Targets
@@ -149,6 +154,18 @@ bun run build --all
 
 > [!NOTE]
 > 32-bit Windows (`win32`) is unsupported by the Bun runtime compiler (only 64-bit and ARM64 platforms are supported).
+
+### Running Compiled Binaries
+
+Once compiled, executables run standalone without Bun or Node installed:
+
+```bash
+# Run locally
+./dist/kg-linux-x64 --help
+
+# Optional: Install to system PATH (Linux/macOS)
+sudo cp dist/kg-linux-x64 /usr/local/bin/kg
+```
 
 ---
 

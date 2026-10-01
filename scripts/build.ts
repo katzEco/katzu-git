@@ -66,6 +66,17 @@ const TARGETS: TargetConfig[] = [
 async function main() {
   mkdirSync("dist", { recursive: true });
 
+  if (process.argv.includes("--help") || process.argv.includes("-h")) {
+    console.log(`
+Usage: bun run build [options]
+
+Options:
+  -a, --all    Build all supported target platforms without prompt
+  -h, --help   Show this help message
+`);
+    process.exit(0);
+  }
+
   const isAllFlag =
     process.argv.includes("--all") || process.argv.includes("-a");
   const isNonInteractive = !process.stdin.isTTY;

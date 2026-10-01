@@ -1,6 +1,6 @@
 import type { CommandModule } from "yargs";
 import chalk from "chalk";
-import pkg from "../../package.json" with { type: "json" };
+import pkg from "../../package.json";
 import type { PackageJson } from "../types.ts";
 
 const packageInfo = pkg as PackageJson;
