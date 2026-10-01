@@ -145,12 +145,12 @@ bun run build --help
 
 | Platform | Target ID | Output Binary |
 | :--- | :--- | :--- |
-| **Windows x64** | `win64` | `dist/kg-win64.exe` |
-| **Windows ARM64** | `win-arm` | `dist/kg-win-arm.exe` |
-| **Linux x64** | `linux-x64` | `dist/kg-linux-x64` |
-| **Linux ARM64** | `linux-arm` | `dist/kg-linux-arm` |
-| **macOS Apple Silicon** | `mac-arm` | `dist/kg-mac-arm` |
-| **macOS Intel** | `mac-x64` | `dist/kg-mac-x64` |
+| **Windows x64** | `win64` | `dist/kg-v<version>-win64.exe` |
+| **Windows ARM64** | `win-arm` | `dist/kg-v<version>-win-arm.exe` |
+| **Linux x64** | `linux-x64` | `dist/kg-v<version>-linux-x64` |
+| **Linux ARM64** | `linux-arm` | `dist/kg-v<version>-linux-arm` |
+| **macOS Apple Silicon** | `mac-arm` | `dist/kg-v<version>-mac-arm` |
+| **macOS Intel** | `mac-x64` | `dist/kg-v<version>-mac-x64` |
 
 > [!NOTE]
 > 32-bit Windows (`win32`) is unsupported by the Bun runtime compiler (only 64-bit and ARM64 platforms are supported).
@@ -160,11 +160,11 @@ bun run build --help
 Once compiled, executables run standalone without Bun or Node installed:
 
 ```bash
-# Run locally
-./dist/kg-linux-x64 --help
+# Run locally (replace with your version and platform)
+./dist/kg-v1.0.7-linux-x64 --help
 
 # Optional: Install to system PATH (Linux/macOS)
-sudo cp dist/kg-linux-x64 /usr/local/bin/kg
+sudo cp dist/kg-v1.0.7-linux-x64 /usr/local/bin/kg
 ```
 
 ---

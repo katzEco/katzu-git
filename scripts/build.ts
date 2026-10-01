@@ -2,6 +2,9 @@ import { mkdirSync } from "node:fs";
 import { spawnSync } from "node:child_process";
 import chalk from "chalk";
 import { checkbox } from "@inquirer/prompts";
+import pkg from "../package.json";
+
+const version = pkg.version;
 
 interface TargetConfig {
   id: string;
@@ -16,7 +19,7 @@ const TARGETS: TargetConfig[] = [
     id: "win64",
     name: "Windows x64 (win64)",
     target: "bun-windows-x64",
-    outfile: "dist/kg-win64.exe",
+    outfile: `dist/kg-v${version}-win64.exe`,
     supported: true,
   },
   {
@@ -30,35 +33,35 @@ const TARGETS: TargetConfig[] = [
     id: "win-arm",
     name: "Windows ARM64 (win-arm)",
     target: "bun-windows-arm64",
-    outfile: "dist/kg-win-arm.exe",
+    outfile: `dist/kg-v${version}-win-arm.exe`,
     supported: true,
   },
   {
     id: "linux-x64",
     name: "Linux x64 (linux-x64)",
     target: "bun-linux-x64",
-    outfile: "dist/kg-linux-x64",
+    outfile: `dist/kg-v${version}-linux-x64`,
     supported: true,
   },
   {
     id: "linux-arm",
     name: "Linux ARM64 (linux-arm)",
     target: "bun-linux-arm64",
-    outfile: "dist/kg-linux-arm",
+    outfile: `dist/kg-v${version}-linux-arm`,
     supported: true,
   },
   {
     id: "mac-arm",
     name: "macOS Apple Silicon (mac-arm)",
     target: "bun-darwin-arm64",
-    outfile: "dist/kg-mac-arm",
+    outfile: `dist/kg-v${version}-mac-arm`,
     supported: true,
   },
   {
     id: "mac-x64",
     name: "macOS Intel (mac-x64)",
     target: "bun-darwin-x64",
-    outfile: "dist/kg-mac-x64",
+    outfile: `dist/kg-v${version}-mac-x64`,
     supported: true,
   },
 ];
@@ -108,7 +111,9 @@ Options:
   }
 
   console.log(
-    chalk.cyan(`\nBuilding binaries for ${selectedIds.length} target(s)...\n`),
+    chalk.cyan(
+      `\nBuilding binaries for kg v${version} (${selectedIds.length} target(s))...\n`,
+    ),
   );
 
   let successCount = 0;
