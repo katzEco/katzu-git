@@ -1,8 +1,9 @@
 import type { CommandModule } from "yargs";
 import chalk from "chalk";
 import { git } from "../git.ts";
+import type { CommitArgs } from "../types.ts";
 
-export const commitCommand: CommandModule = {
+export const commitCommand: CommandModule<{}, CommitArgs> = {
   command: ["commit [type] [scope] [subject..]", "c"],
   describe: "commit new file to your git repo",
   builder: (yargs) =>
@@ -11,9 +12,8 @@ export const commitCommand: CommandModule = {
       .positional("scope", { type: "string" })
       .positional("subject", { type: "string", array: true }),
   handler: (argv) => {
-    const type = argv.type as string | undefined;
-    const scope = argv.scope as string | undefined;
-    const subject = (argv.subject as string[] | undefined)?.join(" ") || "";
+    const { type, scope } = argv;
+    const subject = argv.subject?.join(" ") || "";
 
     if (!type && !scope && !subject) {
       console.log(chalk.red("Can't commiting blank commit..\n"));
