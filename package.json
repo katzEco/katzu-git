@@ -1,6 +1,17 @@
 {
   "name": "katzu-git",
-  "version": "1.0.5",
+  "version": "1.0.6",
+  "description": "katzu's Lazy git - A minimal, ergonomic CLI wrapper for everyday Git workflows",
+  "author": "George Katsuragi Deterk <me@suphakit.net> (https://suphakit.net)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katzEco/katzu-git.git"
+  },
+  "bugs": {
+    "url": "https://github.com/katzEco/katzu-git/issues"
+  },
+  "homepage": "https://github.com/katzEco/katzu-git#readme",
   "module": "bin/index.ts",
   "types": "bin/types.ts",
   "type": "module",
