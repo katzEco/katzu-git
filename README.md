@@ -19,12 +19,34 @@ Originally written as a shell script in [`katzu-git-cli`](https://github.com/kat
 
 ## Installation
 
-### Prerequisites
+### Homebrew (macOS & Linux)
+
+Install via the [katzEco tap](https://github.com/katzEco/homebrew-repo):
+
+```bash
+# Tap the repository
+brew tap katzEco/repo
+
+# Install katzu-git
+brew install katzu-git
+```
+
+Or install directly in one step:
+
+```bash
+brew install katzEco/repo/katzu-git
+```
+
+Both `kg` and `katzu-git` commands will be available in your PATH.
+
+### From Source
+
+#### Prerequisites
 
 - [Bun](https://bun.sh) (recommended) or [Node.js](https://nodejs.org) (v22+)
 - [Git](https://git-scm.com/)
 
-### Clone & Install
+#### Clone & Install
 
 ```bash
 git clone https://github.com/katzEco/katzu-git.git
@@ -32,7 +54,7 @@ cd katzu-git
 bun install
 ```
 
-### Link CLI Locally
+#### Link CLI Locally
 
 To use `kg` globally from your terminal:
 
