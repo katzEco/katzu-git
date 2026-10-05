@@ -6,10 +6,11 @@
     "agent",
     "claude"
   ],
-  "lastSync": "2026-10-01T10:51:27.164Z",
+  "lastSync": "2026-10-05T19:34:52.627Z",
   "installedRules": [
     "use-bun",
-    "version-bump"
+    "version-bump",
+    "release-note"
   ],
   "installedSkills": []
 }
