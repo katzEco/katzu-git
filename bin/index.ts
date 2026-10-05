@@ -5,6 +5,7 @@ import chalk from "chalk";
 import { addCommand } from "./command/add.ts";
 import { commitCommand } from "./command/commit.ts";
 import { pushCommand } from "./command/push.ts";
+import { submoduleCommand } from "./command/submodule.ts";
 import { updateCommand } from "./command/update.ts";
 import { helpCommand, showHelp } from "./command/help.ts";
 
@@ -29,6 +30,7 @@ const cli = yargs(rawArgs)
   .command(addCommand)
   .command(commitCommand)
   .command(pushCommand)
+  .command(submoduleCommand)
   .command(updateCommand)
   .command(helpCommand)
   .strict()

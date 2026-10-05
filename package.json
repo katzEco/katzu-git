@@ -21,7 +21,8 @@
   "scripts": {
     "dev": "bun --watch bin/index.ts",
     "start": "bun run bin/index.ts",
-    "build": "bun scripts/build.ts"
+    "build": "bun scripts/build.ts",
+    "test": "bun test"
   },
   "devDependencies": {
     "@types/bun": "latest",

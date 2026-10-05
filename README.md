@@ -11,6 +11,7 @@ Originally written as a shell script in [`katzu-git-cli`](https://github.com/kat
 - **Quick Add (`kg a`)**: Fast staging for single files or all changes.
 - **Conventional Commits (`kg c`)**: Formats commits automatically with type, scope, and subject.
 - **Push (`kg p`)**: Transparent pass-through for `git push` with flag forwarding.
+- **Submodule Manager (`kg sm`)**: Interactive and CLI management for adding, editing (URL, branch, path), deleting, and syncing submodules.
 - **Interactive Update (`kg update`)**: Inquirer-based prompt to update dependencies.
 - **Standalone Binaries**: Cross-compile to single-file executables for Windows, Linux, and macOS with zero runtime dependencies.
 - **Modular Command Architecture**: Clean TypeScript structure using `yargs` command modules and `chalk` styling.
@@ -78,6 +79,7 @@ Commands:
   a, add <files..>                  Stage files for commit (default: .)
   c, commit <type> <scope> <msg..>  Create a conventional commit
   p, push [remote] [branch]         Push commits to remote
+  s, sm, submodule [action] [args..]  Manage git submodules (add, edit, delete)
   update                            Update package dependencies
   h, help                           Show this help message
 
@@ -86,6 +88,10 @@ Examples:
   $ kg c feat auth add login flow
   $ kg c fix no resolve crash
   $ kg p origin main
+  $ kg sm
+  $ kg sm add https://github.com/foo/bar.git libs/bar
+  $ kg sm edit libs/bar
+  $ kg sm delete libs/bar
 ```
 
 ### 1. Add Files
@@ -124,7 +130,50 @@ kg p origin main
 kg p --force-with-lease
 ```
 
-### 4. Update Package
+### 4. Submodule Manager
+
+Aliases: `kg sm`, `kg sub`, `kg submodule`, `kg s`
+
+#### Interactive Mode
+
+Launch the interactive submodule manager by running:
+
+```bash
+kg sm
+```
+
+Offers a visual menu to:
+- ➕ **Add submodule**: Prompts for repo URL, destination path, and optional tracking branch.
+- ✏️ **Edit submodule**: Pick a submodule to change its URL, tracking branch, rename/move its path, or sync with remote.
+- 🗑️ **Delete submodule**: Select a submodule to de-initialize and safely remove its tree and Git cache.
+- 📋 **List submodules**: Display configured submodules with URLs, branches, commit hashes, and sync statuses.
+- 🔄 **Sync & update**: Synchronize and update all submodules recursively.
+
+#### Command-Line Operations
+
+```bash
+# Add a submodule
+kg sm add https://github.com/org/repo.git libs/repo
+kg sm add https://github.com/org/repo.git libs/repo -b main
+
+# Edit a submodule (or omit flags for interactive edit menu)
+kg sm edit libs/repo --url https://github.com/org/new-repo.git
+kg sm edit libs/repo --branch develop
+kg sm edit libs/repo
+
+# Delete a submodule
+kg sm delete libs/repo
+kg sm delete libs/repo -y     # skip confirmation prompt
+
+# List all submodules
+kg sm list
+
+# Sync and update submodules
+kg sm sync
+kg sm sync libs/repo
+```
+
+### 5. Update Package
 
 ```bash
 kg update

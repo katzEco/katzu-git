@@ -25,6 +25,11 @@ export const showHelp = () => {
       "Create a conventional commit",
     ),
     formatRow("p, push", "[remote] [branch]", "Push commits to remote"),
+    formatRow(
+      "s, sm, submodule",
+      "[action] [args..]",
+      "Manage git submodules (add, edit, delete)",
+    ),
     formatRow("update", "", "Update package dependencies"),
     formatRow("h, help", "", "Show this help message"),
   ].join("\n");
@@ -43,6 +48,10 @@ ${chalk.bold("Examples:")}
   ${chalk.gray("$")} kg c feat auth add login flow
   ${chalk.gray("$")} kg c fix no resolve crash
   ${chalk.gray("$")} kg p origin main
+  ${chalk.gray("$")} kg sm
+  ${chalk.gray("$")} kg sm add https://github.com/foo/bar.git libs/bar
+  ${chalk.gray("$")} kg sm edit libs/bar
+  ${chalk.gray("$")} kg sm delete libs/bar
 `);
 };
 

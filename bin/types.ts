@@ -12,6 +12,26 @@ export interface PushArgs {
   args?: string[];
 }
 
+export interface SubmoduleArgs {
+  action?: string;
+  target?: string;
+  extra?: string[];
+  branch?: string;
+  b?: string;
+  url?: string;
+  yes?: boolean;
+  y?: boolean;
+}
+
+export interface SubmoduleInfo {
+  name: string;
+  path: string;
+  url: string;
+  branch?: string;
+  commit?: string;
+  statusPrefix?: string;
+}
+
 export interface PackageJson {
   name: string;
   version: string;
