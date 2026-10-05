@@ -460,7 +460,7 @@ export async function runInteractiveManager(gitRoot: string) {
 }
 
 export const submoduleCommand: CommandModule<{}, SubmoduleArgs> = {
-  command: ["submodule [action] [target] [extra..]", "sub", "sm", "s"],
+  command: ["submodule [action] [target] [extra..]", "sub", "sm"],
   describe: "Manage git submodules (add, edit, delete, list, sync)",
   builder: (yargs) =>
     yargs

@@ -12,6 +12,31 @@ export interface PushArgs {
   args?: string[];
 }
 
+export interface StatusArgs {
+  args?: string[];
+  interactive?: boolean;
+  i?: boolean;
+  raw?: boolean;
+}
+
+export interface StatusFile {
+  path: string;
+  status: string;
+  code: string;
+}
+
+export interface ParsedStatus {
+  branch: string;
+  upstream?: string;
+  ahead: number;
+  behind: number;
+  staged: StatusFile[];
+  unstaged: StatusFile[];
+  untracked: string[];
+  conflicts: StatusFile[];
+  isClean: boolean;
+}
+
 export interface SubmoduleArgs {
   action?: string;
   target?: string;

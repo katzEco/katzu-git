@@ -11,6 +11,7 @@ Originally written as a shell script in [`katzu-git-cli`](https://github.com/kat
 - **Quick Add (`kg a`)**: Fast staging for single files or all changes.
 - **Conventional Commits (`kg c`)**: Formats commits automatically with type, scope, and subject.
 - **Push (`kg p`)**: Transparent pass-through for `git push` with flag forwarding.
+- **Status Helper (`kg s`)**: Formatted repository status dashboard with upstream tracking, change breakdown, and interactive staging.
 - **Submodule Manager (`kg sm`)**: Interactive and CLI management for adding, editing (URL, branch, path), deleting, and syncing submodules.
 - **Interactive Update (`kg update`)**: Inquirer-based prompt to update dependencies.
 - **Standalone Binaries**: Cross-compile to single-file executables for Windows, Linux, and macOS with zero runtime dependencies.
@@ -70,7 +71,7 @@ bun link
 ## Usage
 
 ```text
-katzu's Lazy git (kg v1.0.7)
+katzu's Lazy git (kg v1.0.8)
 
 Usage:
   kg <command> [options]
@@ -79,7 +80,8 @@ Commands:
   a, add <files..>                  Stage files for commit (default: .)
   c, commit <type> <scope> <msg..>  Create a conventional commit
   p, push [remote] [branch]         Push commits to remote
-  s, sm, submodule [action] [args..]  Manage git submodules (add, edit, delete)
+  s, st, status [args..]            Show repository status and branch info
+  sm, sub, submodule [action] [args..]  Manage git submodules (add, edit, delete)
   update                            Update package dependencies
   h, help                           Show this help message
 
@@ -88,6 +90,8 @@ Examples:
   $ kg c feat auth add login flow
   $ kg c fix no resolve crash
   $ kg p origin main
+  $ kg s
+  $ kg s -i
   $ kg sm
   $ kg sm add https://github.com/foo/bar.git libs/bar
   $ kg sm edit libs/bar
@@ -130,9 +134,28 @@ kg p origin main
 kg p --force-with-lease
 ```
 
-### 4. Submodule Manager
+### 4. Status Helper
 
-Aliases: `kg sm`, `kg sub`, `kg submodule`, `kg s`
+Aliases: `kg s`, `kg st`, `kg status`
+
+Displays a clean, colored status dashboard showing branch upstream tracking, staged files, unstaged changes, and untracked files with helpful shortcuts.
+
+```bash
+# Default status dashboard
+kg s
+
+# Interactive file staging (select files to stage via checkbox)
+kg s -i
+
+# Standard git status pass-through (e.g. short, branch, ignored)
+kg s -s
+kg s -b
+kg s --raw
+```
+
+### 5. Submodule Manager
+
+Aliases: `kg sm`, `kg sub`, `kg submodule`
 
 #### Interactive Mode
 
@@ -173,7 +196,7 @@ kg sm sync
 kg sm sync libs/repo
 ```
 
-### 5. Update Package
+### 6. Update Package
 
 ```bash
 kg update

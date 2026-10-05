@@ -26,7 +26,12 @@ export const showHelp = () => {
     ),
     formatRow("p, push", "[remote] [branch]", "Push commits to remote"),
     formatRow(
-      "s, sm, submodule",
+      "s, st, status",
+      "[args..]",
+      "Show repository status and branch info",
+    ),
+    formatRow(
+      "sm, sub, submodule",
       "[action] [args..]",
       "Manage git submodules (add, edit, delete)",
     ),
@@ -48,6 +53,8 @@ ${chalk.bold("Examples:")}
   ${chalk.gray("$")} kg c feat auth add login flow
   ${chalk.gray("$")} kg c fix no resolve crash
   ${chalk.gray("$")} kg p origin main
+  ${chalk.gray("$")} kg s
+  ${chalk.gray("$")} kg s -i
   ${chalk.gray("$")} kg sm
   ${chalk.gray("$")} kg sm add https://github.com/foo/bar.git libs/bar
   ${chalk.gray("$")} kg sm edit libs/bar
