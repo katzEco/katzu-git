@@ -9,8 +9,7 @@
   "lastSync": "2026-10-05T19:34:52.627Z",
   "installedRules": [
     "use-bun",
-    "version-bump",
-    "release-note"
+    "version-bump"
   ],
   "installedSkills": []
 }
