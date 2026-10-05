@@ -12,6 +12,7 @@ Originally written as a shell script in [`katzu-git-cli`](https://github.com/kat
 - **Conventional Commits (`kg c`)**: Formats commits automatically with type, scope, and subject.
 - **Push (`kg p`)**: Transparent pass-through for `git push` with flag forwarding.
 - **Status Helper (`kg s`)**: Formatted repository status dashboard with upstream tracking, change breakdown, and interactive staging.
+- **Log Helper (`kg l`)**: Pretty formatted commit timeline with conventional commit color coding, graph view, and interactive commit inspector.
 - **Submodule Manager (`kg sm`)**: Interactive and CLI management for adding, editing (URL, branch, path), deleting, and syncing submodules.
 - **Interactive Update (`kg update`)**: Inquirer-based prompt to update dependencies.
 - **Standalone Binaries**: Cross-compile to single-file executables for Windows, Linux, and macOS with zero runtime dependencies.
@@ -71,7 +72,7 @@ bun link
 ## Usage
 
 ```text
-katzu's Lazy git (kg v1.0.8)
+katzu's Lazy git (kg v1.0.9)
 
 Usage:
   kg <command> [options]
@@ -81,6 +82,7 @@ Commands:
   c, commit <type> <scope> <msg..>  Create a conventional commit
   p, push [remote] [branch]         Push commits to remote
   s, st, status [args..]            Show repository status and branch info
+  l, log [args..]                   View commit history with pretty formatting
   sm, sub, submodule [action] [args..]  Manage git submodules (add, edit, delete)
   update                            Update package dependencies
   h, help                           Show this help message
@@ -92,6 +94,9 @@ Examples:
   $ kg p origin main
   $ kg s
   $ kg s -i
+  $ kg l
+  $ kg l -n 5
+  $ kg l -i
   $ kg sm
   $ kg sm add https://github.com/foo/bar.git libs/bar
   $ kg sm edit libs/bar
@@ -153,7 +158,35 @@ kg s -b
 kg s --raw
 ```
 
-### 5. Submodule Manager
+### 5. Log Helper
+
+Aliases: `kg l`, `kg log`
+
+View commit history with semantic conventional commit highlighting, relative dates, and author information.
+
+```bash
+# Default log (recent 10 commits)
+kg l
+
+# Limit commit count
+kg l -n 5
+
+# Interactive commit explorer (inspect commits, diffs, checkout)
+kg l -i
+
+# ASCII history graph
+kg l --graph
+kg l -g
+
+# View diffstat summary for each commit
+kg l --stat
+
+# Filter by author or commit message pattern
+kg l --author="George"
+kg l --grep="feat"
+```
+
+### 6. Submodule Manager
 
 Aliases: `kg sm`, `kg sub`, `kg submodule`
 
@@ -196,7 +229,7 @@ kg sm sync
 kg sm sync libs/repo
 ```
 
-### 6. Update Package
+### 7. Update Package
 
 ```bash
 kg update

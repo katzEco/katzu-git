@@ -31,6 +31,11 @@ export const showHelp = () => {
       "Show repository status and branch info",
     ),
     formatRow(
+      "l, log",
+      "[args..]",
+      "View commit history with pretty formatting",
+    ),
+    formatRow(
       "sm, sub, submodule",
       "[action] [args..]",
       "Manage git submodules (add, edit, delete)",
@@ -55,6 +60,9 @@ ${chalk.bold("Examples:")}
   ${chalk.gray("$")} kg p origin main
   ${chalk.gray("$")} kg s
   ${chalk.gray("$")} kg s -i
+  ${chalk.gray("$")} kg l
+  ${chalk.gray("$")} kg l -n 5
+  ${chalk.gray("$")} kg l -i
   ${chalk.gray("$")} kg sm
   ${chalk.gray("$")} kg sm add https://github.com/foo/bar.git libs/bar
   ${chalk.gray("$")} kg sm edit libs/bar

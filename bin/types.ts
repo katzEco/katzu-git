@@ -37,6 +37,28 @@ export interface ParsedStatus {
   isClean: boolean;
 }
 
+export interface LogArgs {
+  args?: string[];
+  maxCount?: number;
+  n?: number;
+  interactive?: boolean;
+  i?: boolean;
+  stat?: boolean;
+  graph?: boolean;
+  g?: boolean;
+  raw?: boolean;
+  author?: string;
+  grep?: string;
+}
+
+export interface CommitInfo {
+  hash: string;
+  author: string;
+  date: string;
+  subject: string;
+  refs: string;
+}
+
 export interface SubmoduleArgs {
   action?: string;
   target?: string;
