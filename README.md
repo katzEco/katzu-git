@@ -72,7 +72,7 @@ bun link
 ## Usage
 
 ```text
-katzu's Lazy git (kg v1.0.9)
+katzu's Lazy git (kg v1.0.10)
 
 Usage:
   kg <command> [options]
