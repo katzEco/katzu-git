@@ -40,3 +40,6 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 # release patch notes
 patchnote/
 PATCHNOTE.md
+
+RELEASED_NOTE*.md
+RELEASED_NOTE/
