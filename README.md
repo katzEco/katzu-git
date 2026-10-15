@@ -8,6 +8,7 @@ Originally written as a shell script in [`katzu-git-cli`](https://github.com/kat
 
 ## Features
 
+- **Terminal UI (`kg ui` or `kg`)**: Interactive terminal dashboard for repository status, staging, committing, log inspection, and submodule management.
 - **Quick Add (`kg a`)**: Fast staging for single files or all changes.
 - **Conventional Commits (`kg c`)**: Formats commits automatically with type, scope, and subject.
 - **Push (`kg p`)**: Transparent pass-through for `git push` with flag forwarding.
@@ -84,6 +85,7 @@ Commands:
   s, st, status [args..]            Show repository status and branch info
   l, log [args..]                   View commit history with pretty formatting
   sm, sub, submodule [action] [args..]  Manage git submodules (add, edit, delete)
+  ui, tui, menu                     Launch interactive terminal UI dashboard
   update                            Update package dependencies
   h, help                           Show this help message
 
@@ -236,6 +238,25 @@ kg update
 ```
 
 Prompts for confirmation and updates via your package manager.
+
+### 8. Terminal UI
+
+Aliases: `kg ui`, `kg tui`, `kg menu`, or run `kg` directly without arguments in an interactive terminal.
+
+```bash
+# Launch interactive terminal UI
+kg
+# or
+kg ui
+```
+
+Provides a unified interactive dashboard to:
+- Inspect repository branch, upstream sync, and status breakdown.
+- Stage specific files interactively or stage all files.
+- Build and commit conventional commits interactively.
+- Push commits to remote.
+- Explore commit history and inspect diffs.
+- Manage submodules.
 
 ---
 

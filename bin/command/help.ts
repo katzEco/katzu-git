@@ -40,6 +40,7 @@ export const showHelp = () => {
       "[action] [args..]",
       "Manage git submodules (add, edit, delete)",
     ),
+    formatRow("ui, tui, menu", "", "Launch interactive terminal UI dashboard"),
     formatRow("update", "", "Update package dependencies"),
     formatRow("h, help", "", "Show this help message"),
   ].join("\n");
