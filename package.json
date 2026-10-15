@@ -1,6 +1,6 @@
 {
   "name": "katzu-git",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "katzu's Lazy git - A minimal, ergonomic CLI wrapper for everyday Git workflows",
   "author": "George Katsuragi Deterk <me@suphakit.net> (https://suphakit.net)",
   "license": "MIT",
